@@ -39,5 +39,14 @@ stages:
           - task: TerraformTask@5
             inputs:
               provider: 'azurerm'
+              command: 'init'
+              backendServiceArm: 'InfraPipeline'
+              backendAzureRmStorageAccountName: 'stg07'
+              backendAzureRmContainerName: 'tt07'
+              backendAzureRmKey: 'tt1.tfstate'
+
+          - task: TerraformTask@5
+            inputs:
+              provider: 'azurerm'
               command: 'apply'
               environmentServiceNameAzureRM: 'InfraPipeline'
