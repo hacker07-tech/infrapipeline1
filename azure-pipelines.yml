@@ -4,6 +4,10 @@ pool: Default
 
 stages:
   - stage: Init
+
+
+
+
     jobs:
       - job: 
         steps:
@@ -27,6 +31,11 @@ stages:
           #   inputs:
           #     notifyUsers: 'tushartripathi21@gmail.com'
           #     onTimeout: 'resume'
+
+  - stage:
+    jobs:
+      - job: 
+        steps:
           - task: TerraformTask@5
             inputs:
               provider: 'azurerm'
