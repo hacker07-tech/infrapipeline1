@@ -28,10 +28,17 @@ stages:
               provider: 'azurerm'
               command: 'plan'
               environmentServiceNameAzureRM: 'InfraPipeline'
-          # - task: ManualValidation@1
-          #   inputs:
-          #     notifyUsers: 'tushartripathi21@gmail.com'
-          #     onTimeout: 'resume'
+  - stage: 
+    displayName: Manual Validation k liye bheja hai
+    jobs:
+      - job: 
+        pool: server
+        steps:
+          - task: ManualValidation@1
+            inputs:
+              notifyUsers: 'cloud.sanjaysingh@gmail.com'
+              approvers: 'Sanjay'
+              onTimeout: 'resume'
 
   - stage:
     jobs:
